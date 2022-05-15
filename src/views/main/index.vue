@@ -5,6 +5,8 @@
     <Icon icon-name="icon-auto" />
     <span class="myclass">fewfwe</span>
     <div :style="{ color: variables.color_333 }">颜色</div>
+    <el-button @click="changeTheme(1)">变粉</el-button>
+    <el-button @click="changeTheme(2)">变绿</el-button>
   </div>
 </template>
 
@@ -36,13 +38,22 @@ export default {
       // this.changeInputValue("89790");
       this.toggleAppName("fwewef").then((res) => console.log(res));
     },
+    changeTheme(type) {
+      window.document.documentElement.setAttribute(
+        "data-theme",
+        type === 1 ? "pink" : "green"
+      );
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@/theme/index.scss";
+
 .myclass {
-  color: $color_333;
+  @include background_color("background_color1");
+  // color: $color_333;
   // color: red;
 }
 </style>
