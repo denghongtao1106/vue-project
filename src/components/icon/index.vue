@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: "bgyIcon",
   props: {
     iconName: {
       type: String,
